@@ -54,8 +54,10 @@ students = [
 
 def iterateDictionary(studentsParameter):
     for student in studentsParameter:
+        str = ""
         for k, v in student.items():
-            print(f"{k} - {v}")
+            str += f"{k} - {v}, "
+        print(str[:-2])
 
 
 iterateDictionary(students)
@@ -64,6 +66,10 @@ iterateDictionary(students)
 # TODO Get Values From a List of Dictionaries
 # Create a function iterateDictionary2(key_name, some_list) that, given a list of dictionaries and a key name,
 #  the function prints the value stored in that key for each dictionary.
+def iterateDictionary2(key_name, some_list):
+    for student in some_list:
+        print(student[key_name])
+
 
 #  For example, iterateDictionary2('first_name', students) should output:
 
@@ -72,12 +78,17 @@ iterateDictionary(students)
 # Mark
 # KB
 
+iterateDictionary2('first_name', students)
+
+
 # And iterateDictionary2('last_name', students) should output:
 
+iterateDictionary2('last_name', students)
 # Jordan
 # Rosales
 # Guillen
 # Tonel
+
 
 # TODO Iterate Through a Dictionary with List Values
 #
@@ -86,7 +97,11 @@ iterateDictionary(students)
 #  associated values within each key's list. For example:
 
 def printInfo(some_dict):
-    pass
+    for k,v in some_dict.items():
+        print(len(v), k.upper())
+        for i in v:
+            print(i)
+        print()
 
 
 dojo = {
@@ -95,8 +110,7 @@ dojo = {
 }
 printInfo(dojo)
 # output:
-7
-# LOCATIONS
+# 7 LOCATIONS
 # San
 # Jose
 # Seattle
@@ -106,8 +120,7 @@ printInfo(dojo)
 # DC
 # Burbank
 #
-# 8
-# INSTRUCTORS
+# 8 INSTRUCTORS
 # Michael
 # Amy
 # Eduardo
